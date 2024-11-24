@@ -1,0 +1,126 @@
+-- // Hub Suysbs X RedZ Hub
+ScreenGui local = Instância.new("ScreenGui")
+Botão Principal local = Instance.new("TextButton")
+MainFrame local = Instância.new("Quadro")
+AutofarmButton local = Instance.new("TextButton")
+local FarmModeDropdown = Instance.new("TextButton")
+local FarmModeList = Instance.new("Quadro")
+local FarmWithSword = Instance.new("TextButton")
+local FarmWithFruit = Instance.new("TextButton")
+local FarmWithPunch = Instance.new("TextButton")
+
+-- // Propriedades
+ScreenGui.Parent = jogo.CoreGui
+ScreenGui.Name = "SuysbsRedZHub"
+
+BotãoPrincipal.Nome = "BotãoPrincipal"
+Botão Principal.Parent = ScreenGui
+Botão Principal.CorDeFundo3 = Cor3.fromRGB(0, 0, 0)
+MainButton.Position = UDim2.new(0, 50, 0, 50)
+BotãoPrincipal.Tamanho = UDim2.novo(0, 150, 0, 50)
+MainButton.Font = Enum.Font.SourceSans
+MainButton.Text = "Suysbs X RedZ Hub"
+MainButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+Botão Principal.Tamanho do Texto = 16
+
+MainFrame.Nome = "MainFrame"
+MainFrame.Parent = TelaGuia
+MainFrame.BackgroundColor3 = Cor3.fromRGB(30, 30, 30)
+MainFrame.Posição = UDim2.new(0, 50, 0, 120)
+MainFrame.Tamanho = UDim2.novo(0, 300, 0, 400)
+MainFrame.Visible = falso
+
+AutofarmButton.Name = "BotãoAutofarm"
+Botão Autofarm.Parent = MainFrame
+AutofarmButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+AutofarmButton.Posição = UDim2.new(0, 10, 0, 10)
+AutofarmButton.Size = UDim2.new(0, 280, 0, 40)
+AutofarmButton.Font = Enum.Font.SourceSans
+AutofarmButton.Text = "Iniciar Autofarm"
+AutofarmButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+Botão Autofarm.Tamanho do texto = 18
+
+FarmModeDropdown.Nome = "FarmModeDropdown"
+FarmModeDropdown.Parent = MainFrame
+FarmModeDropdown.BackgroundColor3 = Cor3.fromRGB(50, 50, 50)
+FarmModeDropdown.Posição = UDim2.novo(0, 10, 0, 60)
+FarmModeDropdown.Tamanho = UDim2.novo(0, 280, 0, 40)
+FarmModeDropdown.Font = Enum.Font.SourceSans
+FarmModeDropdown.Text = "Selecionar modo de fazenda"
+FarmModeDropdown.TextColor3 = Color3.fromRGB(255, 255, 255)
+FarmModeDropdown.TextSize = 18
+
+FarmModeList.Name = "Lista de Modos de Fazenda"
+FarmModeList.Parent = MainFrame
+FarmModeList.BackgroundColor3 = Cor3.fromRGB(50, 50, 50)
+FarmModeList.Posição = UDim2.novo(0, 10, 0, 110)
+FarmModeList.Size = UDim2.new(0, 280, 0, 100)
+FarmModeList.Visible = falso
+
+FazendaComEspada.Nome = "FazendaComEspada"
+FarmWithSword.Parent = Lista de Modos de Fazenda
+FarmWithSword.BackgroundColor3 = Cor3.fromRGB(70, 70, 70)
+FarmWithSword.Tamanho = UDim2.novo(1, 0, 0, 30)
+FarmWithSword.Font = Enum.Fonte.SourceSans
+FarmWithSword.Text = "Fazenda com Espada"
+FarmWithSword.TextColor3 = Color3.fromRGB(255, 255, 255)
+FarmWithSword.Tamanho do texto = 16
+
+FarmWithFruit.Name = "FazendaComFruit"
+FarmWithFruit.Parent = ListaModoFazenda
+FazendaComFruta.CorDeFundo3 = Cor3.fromRGB(70, 70, 70)
+FazendaComFruta.Posição = UDim2.novo(0, 0, 0, 40)
+FazendaComFruta.Tamanho = UDim2.novo(1, 0, 0, 30)
+FazendaComFruta.Fonte = Enum.Fonte.SourceSans
+FarmWithFruit.Text = "Fazenda com Frutas"
+FarmWithFruit.TextColor3 = Color3.fromRGB(255, 255, 255)
+FarmWithFruit.TamanhoDoTexto = 16
+
+FarmWithPunch.Nome = "FazendaComSoco"
+FarmWithPunch.Parent = Lista de Modos de Fazenda
+FarmWithPunch.BackgroundColor3 = Cor3.fromRGB(70, 70, 70)
+FarmWithPunch.Posição = UDim2.novo(0, 0, 0, 80)
+FarmWithPunch.Tamanho = UDim2.novo(1, 0, 0, 30)
+FarmWithPunch.Font = Enum.Fonte.SourceSans
+FarmWithPunch.Text = "Fazenda com Punch"
+FarmWithPunch.TextColor3 = Color3.fromRGB(255, 255, 255)
+FarmWithPunch.Tamanho do texto = 16
+
+-- // Funções de script
+BotãoPrincipal.BotãoMouse1Clique:Conectar(função()
+    MainFrame.Visible = não MainFrame.Visible
+fim)
+
+FarmModeDropdown.MouseButton1Click:Conectar(função()
+    FarmModeList.Visible = não FarmModeList.Visible
+fim)
+
+local selecionadoFarmMode = nulo
+
+FarmWithSword.MouseButton1Click:Conectar(função()
+    selectedFarmMode = "Espada"
+    FarmModeDropdown.Text = "Fazenda com Espada"
+    FarmModeList.Visible = falso
+fim)
+
+FarmWithFruit.MouseButton1Click:Conectar(função()
+    selectedFarmMode = "Fruta"
+    FarmModeDropdown.Text = "Fazenda com Frutas"
+    FarmModeList.Visible = falso
+fim)
+
+FarmWithPunch.MouseButton1Click:Conectar(função()
+    selectedFarmMode = "Soco"
+    FarmModeDropdown.Text = "Fazenda com Punch"
+    FarmModeList.Visible = falso
+fim)
+
+AutofarmButton.MouseButton1Click:Conectar(função()
+    se selectedFarmMode == nulo então
+        warn("Nenhum modo de fazenda selecionado!")
+        retornar
+    fim
+    
+    print("Iniciando autofarm com modo:", selectedFarmMode)
+    -- Aqui você pode adicionar as funções de autofarm baseadas no modo selecionado
+fim)
