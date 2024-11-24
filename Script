@@ -1,4 +1,4 @@
--- Autofarm para Blox Fruits
+-- Autofarm com Cliques Automáticos Rápidos
 local player = game.Players.LocalPlayer
 local char = player.Character or player.CharacterAdded:Wait()
 
@@ -7,10 +7,13 @@ local function teleport(pos)
     wait(0.3) -- Tempo para o personagem se mover
 end
 
-local function attack()
+local function autoClick()
     local tool = char:FindFirstChildOfClass("Tool") -- Encontra a arma equipada
     if tool then
-        tool:Activate() -- Executa ataque com a arma
+        for i = 1, 10 do -- Clique rápido múltiplo
+            tool:Activate()
+            wait(0.05) -- Intervalo curto entre cliques
+        end
     end
 end
 
@@ -38,7 +41,7 @@ local function farm()
             for _, npc in pairs(workspace.Enemies:GetChildren()) do
                 if npc:FindFirstChild("Humanoid") and npc.Humanoid.Health > 0 then
                     teleport(npc.HumanoidRootPart.Position) -- Teleporta para o NPC
-                    attack() -- Executa o ataque
+                    autoClick() -- Executa cliques automáticos
                 end
             end
         end
