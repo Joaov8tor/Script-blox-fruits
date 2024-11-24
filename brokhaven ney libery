@@ -1,0 +1,262 @@
+-- Suysbs X NEW Update - Brookhaven Hub
+local ScreenGui = Instance.new("ScreenGui")
+local MainFrame = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local CloseButton = Instance.new("TextButton")
+local FlyButton = Instance.new("TextButton")
+local SpeedButton = Instance.new("TextButton")
+local JumpButton = Instance.new("TextButton")
+local UnbanFrame = Instance.new("Frame")
+local UnbanLabel = Instance.new("TextLabel")
+local UnbanTextbox = Instance.new("TextBox")
+local UnbanButton = Instance.new("TextButton")
+local RoommateFrame = Instance.new("Frame")
+local RoommateLabel = Instance.new("TextLabel")
+local RoommateTextbox = Instance.new("TextBox")
+local RoommateButton = Instance.new("TextButton")
+
+-- Configuração do GUI
+ScreenGui.Parent = game.CoreGui
+ScreenGui.Name = "SuysbsXNEWUpdate"
+
+-- Frame Principal
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = ScreenGui
+MainFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20) -- Preto elegante
+MainFrame.Position = UDim2.new(0.3, 0, 0.3, 0) -- Centro da tela
+MainFrame.Size = UDim2.new(0, 400, 0, 400) -- Dimensões do painel
+MainFrame.Active = true
+MainFrame.Draggable = true -- Permite mover o painel
+
+-- Título
+Title.Name = "Title"
+Title.Parent = MainFrame
+Title.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Title.Size = UDim2.new(1, 0, 0, 50)
+Title.Font = Enum.Font.SourceSansBold
+Title.Text = "Suysbs X NEW Update"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255) -- Texto branco
+Title.TextSize = 24
+
+-- Botão Fechar
+CloseButton.Name = "CloseButton"
+CloseButton.Parent = MainFrame
+CloseButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0) -- Vermelho
+CloseButton.Position = UDim2.new(0.9, -30, 0, 10)
+CloseButton.Size = UDim2.new(0, 20, 0, 20)
+CloseButton.Font = Enum.Font.SourceSansBold
+CloseButton.Text = "X"
+CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+CloseButton.TextSize = 14
+CloseButton.MouseButton1Click:Connect(function()
+    ScreenGui:Destroy() -- Fecha o GUI
+end)
+
+-- Botão Fly
+FlyButton.Name = "FlyButton"
+FlyButton.Parent = MainFrame
+FlyButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+FlyButton.Position = UDim2.new(0.1, 0, 0.15, 0)
+FlyButton.Size = UDim2.new(0.8, 0, 0, 40)
+FlyButton.Font = Enum.Font.SourceSansBold
+FlyButton.Text = "Enable Fly"
+FlyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+FlyButton.TextSize = 18
+FlyButton.MouseButton1Click:Connect(function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/6M6a5B9y"))() -- Exemplo de script de fly
+end)
+
+-- Botão Unban
+UnbanFrame.Name = "UnbanFrame"
+UnbanFrame.Parent = MainFrame
+UnbanFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+UnbanFrame.Position = UDim2.new(0.1, 0, 0.3, 0)
+UnbanFrame.Size = UDim2.new(0.8, 0, 0, 60)
+
+UnbanLabel.Name = "UnbanLabel"
+UnbanLabel.Parent = UnbanFrame
+UnbanLabel.Size = UDim2.new(1, 0, 0.5, 0)
+UnbanLabel.Text = "Digite o número da casa que deseja ser desbanido"
+UnbanLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+UnbanLabel.BackgroundTransparency = 1
+UnbanLabel.TextSize = 14
+
+UnbanTextbox.Name = "UnbanTextbox"
+UnbanTextbox.Parent = UnbanFrame
+UnbanTextbox.Position = UDim2.new(0, 10, 0.5, 0)
+UnbanTextbox.Size = UDim2.new(0.7, 0, 0.4, 0)
+UnbanTextbox.PlaceholderText = "Número da Casa"
+UnbanTextbox.Text = ""
+
+UnbanButton.Name = "UnbanButton"
+UnbanButton.Parent = UnbanFrame
+UnbanButton.Position = UDim2.new(0.75, 0, 0.5, 0)
+UnbanButton.Size = UDim2.new(0.2, 0, 0.4, 0)
+UnbanButton.Text = "Desbanir"
+UnbanButton.MouseButton1Click:Connect(function()
+    local houseNum = UnbanTextbox.Text
+    print("Desbanido da casa:", houseNum) -- Substituir com código funcional de desbanir
+end)
+
+-- Botão Roommate
+RoommateFrame.Name = "RoommateFrame"
+RoommateFrame.Parent = MainFrame
+RoommateFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+RoommateFrame.Position = UDim2.new(0.1, 0, 0.5, 0)
+RoommateFrame.Size = UDim2.new(0.8, 0, 0, 60)
+
+RoommateLabel.Name = "RoommateLabel"
+RoommateLabel.Parent = RoommateFrame
+RoommateLabel.Size = UDim2.new(1, 0, 0.5, 0)
+RoommateLabel.Text = "Digite o número da casa para ser colega de quarto"
+RoommateLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+RoommateLabel.BackgroundTransparency = 1
+RoommateLabel.TextSize = 14
+
+RoommateTextbox.Name = "RoommateTextbox"
+RoommateTextbox.Parent = RoommateFrame
+RoommateTextbox.Position = UDim2.new(0, 10, 0.5, 0)
+RoommateTextbox.Size = UDim2.new(0.7, 0, 0.4, 0)
+RoommateTextbox.PlaceholderText = "Número da Casa"
+RoommateTextbox.Text = ""
+
+RoommateButton.Name = "RoommateButton"
+RoommateButton.Parent = RoommateFrame
+RoommateButton.Position = UDim2.new(0.75, 0, 0.5, 0)
+RoommateButton.Size = UDim2.new(0.2, 0, 0.4, 0)
+RoommateButton.Text = "Permitir"
+RoommateButton.MouseButton1Click:Connect(function()
+    local houseNum = RoommateTextbox.Text
+    print("Permissão de colega de quarto para casa:", houseNum) -- Substituir com código funcional de colega
+end)
+-- Suysbs X NEW Update - Brookhaven Hub
+local ScreenGui = Instance.new("ScreenGui")
+local MainFrame = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local CloseButton = Instance.new("TextButton")
+local FlyButton = Instance.new("TextButton")
+local SpeedButton = Instance.new("TextButton")
+local JumpButton = Instance.new("TextButton")
+local UnbanFrame = Instance.new("Frame")
+local UnbanLabel = Instance.new("TextLabel")
+local UnbanTextbox = Instance.new("TextBox")
+local UnbanButton = Instance.new("TextButton")
+local RoommateFrame = Instance.new("Frame")
+local RoommateLabel = Instance.new("TextLabel")
+local RoommateTextbox = Instance.new("TextBox")
+local RoommateButton = Instance.new("TextButton")
+
+-- Configuração do GUI
+ScreenGui.Parent = game.CoreGui
+ScreenGui.Name = "SuysbsXNEWUpdate"
+
+-- Frame Principal
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = ScreenGui
+MainFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20) -- Preto elegante
+MainFrame.Position = UDim2.new(0.3, 0, 0.3, 0) -- Centro da tela
+MainFrame.Size = UDim2.new(0, 400, 0, 400) -- Dimensões do painel
+MainFrame.Active = true
+MainFrame.Draggable = true -- Permite mover o painel
+
+-- Título
+Title.Name = "Title"
+Title.Parent = MainFrame
+Title.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Title.Size = UDim2.new(1, 0, 0, 50)
+Title.Font = Enum.Font.SourceSansBold
+Title.Text = "Suysbs X NEW Update"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255) -- Texto branco
+Title.TextSize = 24
+
+-- Botão Fechar
+CloseButton.Name = "CloseButton"
+CloseButton.Parent = MainFrame
+CloseButton.BackgroundColor3 = Color3.fromRGB(255, 0, 0) -- Vermelho
+CloseButton.Position = UDim2.new(0.9, -30, 0, 10)
+CloseButton.Size = UDim2.new(0, 20, 0, 20)
+CloseButton.Font = Enum.Font.SourceSansBold
+CloseButton.Text = "X"
+CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+CloseButton.TextSize = 14
+CloseButton.MouseButton1Click:Connect(function()
+    ScreenGui:Destroy() -- Fecha o GUI
+end)
+
+-- Botão Fly
+FlyButton.Name = "FlyButton"
+FlyButton.Parent = MainFrame
+FlyButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+FlyButton.Position = UDim2.new(0.1, 0, 0.15, 0)
+FlyButton.Size = UDim2.new(0.8, 0, 0, 40)
+FlyButton.Font = Enum.Font.SourceSansBold
+FlyButton.Text = "Enable Fly"
+FlyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+FlyButton.TextSize = 18
+FlyButton.MouseButton1Click:Connect(function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/6M6a5B9y"))() -- Exemplo de script de fly
+end)
+
+-- Botão Unban
+UnbanFrame.Name = "UnbanFrame"
+UnbanFrame.Parent = MainFrame
+UnbanFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+UnbanFrame.Position = UDim2.new(0.1, 0, 0.3, 0)
+UnbanFrame.Size = UDim2.new(0.8, 0, 0, 60)
+
+UnbanLabel.Name = "UnbanLabel"
+UnbanLabel.Parent = UnbanFrame
+UnbanLabel.Size = UDim2.new(1, 0, 0.5, 0)
+UnbanLabel.Text = "Digite o número da casa que deseja ser desbanido"
+UnbanLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+UnbanLabel.BackgroundTransparency = 1
+UnbanLabel.TextSize = 14
+
+UnbanTextbox.Name = "UnbanTextbox"
+UnbanTextbox.Parent = UnbanFrame
+UnbanTextbox.Position = UDim2.new(0, 10, 0.5, 0)
+UnbanTextbox.Size = UDim2.new(0.7, 0, 0.4, 0)
+UnbanTextbox.PlaceholderText = "Número da Casa"
+UnbanTextbox.Text = ""
+
+UnbanButton.Name = "UnbanButton"
+UnbanButton.Parent = UnbanFrame
+UnbanButton.Position = UDim2.new(0.75, 0, 0.5, 0)
+UnbanButton.Size = UDim2.new(0.2, 0, 0.4, 0)
+UnbanButton.Text = "Desbanir"
+UnbanButton.MouseButton1Click:Connect(function()
+    local houseNum = UnbanTextbox.Text
+    print("Desbanido da casa:", houseNum) -- Substituir com código funcional de desbanir
+end)
+
+-- Botão Roommate
+RoommateFrame.Name = "RoommateFrame"
+RoommateFrame.Parent = MainFrame
+RoommateFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+RoommateFrame.Position = UDim2.new(0.1, 0, 0.5, 0)
+RoommateFrame.Size = UDim2.new(0.8, 0, 0, 60)
+
+RoommateLabel.Name = "RoommateLabel"
+RoommateLabel.Parent = RoommateFrame
+RoommateLabel.Size = UDim2.new(1, 0, 0.5, 0)
+RoommateLabel.Text = "Digite o número da casa para ser colega de quarto"
+RoommateLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+RoommateLabel.BackgroundTransparency = 1
+RoommateLabel.TextSize = 14
+
+RoommateTextbox.Name = "RoommateTextbox"
+RoommateTextbox.Parent = RoommateFrame
+RoommateTextbox.Position = UDim2.new(0, 10, 0.5, 0)
+RoommateTextbox.Size = UDim2.new(0.7, 0, 0.4, 0)
+RoommateTextbox.PlaceholderText = "Número da Casa"
+RoommateTextbox.Text = ""
+
+RoommateButton.Name = "RoommateButton"
+RoommateButton.Parent = RoommateFrame
+RoommateButton.Position = UDim2.new(0.75, 0, 0.5, 0)
+RoommateButton.Size = UDim2.new(0.2, 0, 0.4, 0)
+RoommateButton.Text = "Permitir"
+RoommateButton.MouseButton1Click:Connect(function()
+    local houseNum = RoommateTextbox.Text
+    print("Permissão de colega de quarto para casa:", houseNum) -- Substituir com código funcional de colega
+end)
