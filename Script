@@ -1,130 +1,50 @@
--- // Hub Suysbs X RedZ Hub
-local ScreenGui = Instance.new("ScreenGui")
-local MainButton = Instance.new("TextButton")
-local MainFrame = Instance.new("Frame")
-local AutofarmButton = Instance.new("TextButton")
-local FarmModeDropdown = Instance.new("TextButton")
-local FarmModeList = Instance.new("Frame")
-local FarmWithSword = Instance.new("TextButton")
-local FarmWithFruit = Instance.new("TextButton")
-local FarmWithPunch = Instance.new("TextButton")
+-- Autofarm para Blox Fruits
+local player = game.Players.LocalPlayer
+local char = player.Character or player.CharacterAdded:Wait()
 
--- // Adicionar na interface
-ScreenGui.Parent = game.CoreGui
-ScreenGui.Name = "SuysbsRedZHub"
+local function teleport(pos)
+    char:MoveTo(pos)
+    wait(0.3) -- Tempo para o personagem se mover
+end
 
--- // Botão Principal
-MainButton.Name = "MainButton"
-MainButton.Parent = ScreenGui
-MainButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Cor preta
-MainButton.Position = UDim2.new(0, 50, 0, 50) -- Posição do botão
-MainButton.Size = UDim2.new(0, 150, 0, 50) -- Tamanho do botão
-MainButton.Font = Enum.Font.SourceSans
-MainButton.Text = "Suysbs X RedZ Hub"
-MainButton.TextColor3 = Color3.fromRGB(255, 255, 255) -- Cor branca no texto
-MainButton.TextSize = 16
-
--- // Painel Principal
-MainFrame.Name = "MainFrame"
-MainFrame.Parent = ScreenGui
-MainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30) -- Cor cinza escuro
-MainFrame.Position = UDim2.new(0, 50, 0, 120) -- Posição do painel
-MainFrame.Size = UDim2.new(0, 300, 0, 400) -- Tamanho do painel
-MainFrame.Visible = false -- Inicia invisível
-
--- // Botão de Autofarm
-AutofarmButton.Name = "AutofarmButton"
-AutofarmButton.Parent = MainFrame
-AutofarmButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-AutofarmButton.Position = UDim2.new(0, 10, 0, 10)
-AutofarmButton.Size = UDim2.new(0, 280, 0, 40)
-AutofarmButton.Font = Enum.Font.SourceSans
-AutofarmButton.Text = "Start Autofarm"
-AutofarmButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-AutofarmButton.TextSize = 18
-
--- // Dropdown de Modo de Farm
-FarmModeDropdown.Name = "FarmModeDropdown"
-FarmModeDropdown.Parent = MainFrame
-FarmModeDropdown.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-FarmModeDropdown.Position = UDim2.new(0, 10, 0, 60)
-FarmModeDropdown.Size = UDim2.new(0, 280, 0, 40)
-FarmModeDropdown.Font = Enum.Font.SourceSans
-FarmModeDropdown.Text = "Select Farm Mode"
-FarmModeDropdown.TextColor3 = Color3.fromRGB(255, 255, 255)
-FarmModeDropdown.TextSize = 18
-
--- // Lista de Modos de Farm
-FarmModeList.Name = "FarmModeList"
-FarmModeList.Parent = MainFrame
-FarmModeList.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-FarmModeList.Position = UDim2.new(0, 10, 0, 110)
-FarmModeList.Size = UDim2.new(0, 280, 0, 100)
-FarmModeList.Visible = false -- Começa invisível
-
-FarmWithSword.Name = "FarmWithSword"
-FarmWithSword.Parent = FarmModeList
-FarmWithSword.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
-FarmWithSword.Size = UDim2.new(1, 0, 0, 30)
-FarmWithSword.Font = Enum.Font.SourceSans
-FarmWithSword.Text = "Farm with Sword"
-FarmWithSword.TextColor3 = Color3.fromRGB(255, 255, 255)
-FarmWithSword.TextSize = 16
-
-FarmWithFruit.Name = "FarmWithFruit"
-FarmWithFruit.Parent = FarmModeList
-FarmWithFruit.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
-FarmWithFruit.Position = UDim2.new(0, 0, 0, 40)
-FarmWithFruit.Size = UDim2.new(1, 0, 0, 30)
-FarmWithFruit.Font = Enum.Font.SourceSans
-FarmWithFruit.Text = "Farm with Fruit"
-FarmWithFruit.TextColor3 = Color3.fromRGB(255, 255, 255)
-FarmWithFruit.TextSize = 16
-
-FarmWithPunch.Name = "FarmWithPunch"
-FarmWithPunch.Parent = FarmModeList
-FarmWithPunch.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
-FarmWithPunch.Position = UDim2.new(0, 0, 0, 80)
-FarmWithPunch.Size = UDim2.new(1, 0, 0, 30)
-FarmWithPunch.Font = Enum.Font.SourceSans
-FarmWithPunch.Text = "Farm with Punch"
-FarmWithPunch.TextColor3 = Color3.fromRGB(255, 255, 255)
-FarmWithPunch.TextSize = 16
-
--- // Funções
-MainButton.MouseButton1Click:Connect(function()
-    MainFrame.Visible = not MainFrame.Visible -- Alterna a visibilidade do painel
-end)
-
-FarmModeDropdown.MouseButton1Click:Connect(function()
-    FarmModeList.Visible = not FarmModeList.Visible -- Alterna a visibilidade da lista
-end)
-
-local selectedFarmMode = nil
-
-FarmWithSword.MouseButton1Click:Connect(function()
-    selectedFarmMode = "Sword"
-    FarmModeDropdown.Text = "Farm with Sword"
-    FarmModeList.Visible = false
-end)
-
-FarmWithFruit.MouseButton1Click:Connect(function()
-    selectedFarmMode = "Fruit"
-    FarmModeDropdown.Text = "Farm with Fruit"
-    FarmModeList.Visible = false
-end)
-
-FarmWithPunch.MouseButton1Click:Connect(function()
-    selectedFarmMode = "Punch"
-    FarmModeDropdown.Text = "Farm with Punch"
-    FarmModeList.Visible = false
-end)
-
-AutofarmButton.MouseButton1Click:Connect(function()
-    if selectedFarmMode == nil then
-        warn("No farm mode selected!")
-        return
+local function attack()
+    local tool = char:FindFirstChildOfClass("Tool") -- Encontra a arma equipada
+    if tool then
+        tool:Activate() -- Executa ataque com a arma
     end
-    print("Starting autofarm with mode:", selectedFarmMode)
-    -- Aqui você adiciona as funções reais de farm
-end)
+end
+
+local function getIslandByLevel(level)
+    -- Exemplo simples de ilhas e níveis; adicione conforme o jogo.
+    local islands = {
+        {name = "Starter Island", level = 1, pos = Vector3.new(100, 10, 100)},
+        {name = "Pirate Island", level = 30, pos = Vector3.new(300, 10, 300)},
+        {name = "Desert Island", level = 60, pos = Vector3.new(600, 10, 600)},
+    }
+    for _, island in ipairs(islands) do
+        if level >= island.level then
+            return island
+        end
+    end
+end
+
+local function farm()
+    local level = player.Data.Level.Value -- Obtém o nível do jogador
+    local island = getIslandByLevel(level) -- Obtém a ilha baseada no nível
+    if island then
+        print("Viajando para:", island.name)
+        teleport(island.pos) -- Teleporta para a ilha correta
+        while wait(0.1) do
+            for _, npc in pairs(workspace.Enemies:GetChildren()) do
+                if npc:FindFirstChild("Humanoid") and npc.Humanoid.Health > 0 then
+                    teleport(npc.HumanoidRootPart.Position) -- Teleporta para o NPC
+                    attack() -- Executa o ataque
+                end
+            end
+        end
+    else
+        warn("Nível insuficiente para farmar!")
+    end
+end
+
+farm()
